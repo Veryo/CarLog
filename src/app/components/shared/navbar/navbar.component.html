@@ -35,7 +35,7 @@
 
     
         <div class="d-flex flex-column align-items-center justify-content-center">
-            <button mat-button class="d-flex flex-column align-items-center btn btn-sm p-1" [disabled]="isDisabled">
+            <button mat-button class="d-flex flex-column align-items-center btn btn-sm p-1" [disabled]="isDisabled" (click)="navigateToFuel()">
                 <i class="material-icons fs-6">local_gas_station</i>
                 <span class="fs-6">Fuel</span>
             </button>

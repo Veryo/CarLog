@@ -1,0 +1,48 @@
+<div class="d-flex flex-column gap-1 container-fluid container-md">
+    <h2 class="text-center">{{fuelDetails.name}}</h2>
+
+Starting Point
+<mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ fuelDetails.startingPoint  }}</div>
+    </mat-card-content>
+  </mat-card>
+  Destination
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ fuelDetails.destination  }}</div>
+    </mat-card-content>
+  </mat-card>
+  Distance
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ fuelDetails.distance  }} km </div>
+    </mat-card-content>
+  </mat-card>
+  Fuel Consumption
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ fuelDetails.fuelConsumption }} L/100 km</div>
+    </mat-card-content>
+  </mat-card>
+  Petrol Price
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ fuelDetails.petrolPrice  }} PLN/L</div>
+    </mat-card-content>
+  </mat-card>
+  Total Cost
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ fuelDetails.totalCost  }} PLN</div>
+    </mat-card-content>
+  </mat-card>
+
+
+  <button mat-button [routerLink]="['/fuel-form',fuelDetails.fuelId]">
+    <i class="material-icons">edit</i>Edit
+  </button>
+
+</div>
+
+
