@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-navbar',
   standalone: true,
-  imports: [MatToolbarModule,MatButtonModule,MatIconModule],
+  imports: [MatToolbarModule,MatButtonModule,MatIconModule,RouterLink],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
@@ -18,7 +18,16 @@ export class NavbarComponent {
       this.router.url === '/garage' ;
     });
   }
-  navigateToGarage() {
-    this.router.navigate(['/garage']);
+  navigateToInsurance() {
+    const currentUrl = window.location.pathname;
+    const carId = currentUrl.split('/')[2];  
+    const insuranceId = 1
+    this.router.navigate(['/insurance/', insuranceId,carId]);
+  }
+
+  navigateToCurrentCar() {
+    const currentUrl = window.location.pathname;
+    const carId = currentUrl.split('/')[3];  
+    this.router.navigate(['/current-car', carId]);
   }
 }
