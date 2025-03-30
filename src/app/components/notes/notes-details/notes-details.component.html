@@ -1,0 +1,20 @@
+ <mat-card class="container-fluid container-md" appearance="outlined" >
+    <mat-card-header class="justify-content-center" >
+      <mat-card-title ><h6>{{note.title}}</h6></mat-card-title>
+    </mat-card-header>
+    <img mat-card-image [src]="note.images[currentIndex]" alt="Photo">
+    <mat-card-content>
+        <div class="d-flex flex-column">
+            <div class=" d-flex justify-content-between mb-3">
+                <button mat-button (click)="prevImage()">Previous</button>
+                <button mat-button (click)="nextImage()">Next</button>
+            </div>
+            {{note.description}}
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="justify-content-center">
+        <button mat-button [routerLink]="['/notes-form',note.noteId]">
+            <i class="material-icons">edit</i>Edit
+          </button>
+    </mat-card-actions>
+  </mat-card>
