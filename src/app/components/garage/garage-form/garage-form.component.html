@@ -1,5 +1,10 @@
-<form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="d-flex flex-column ">
-    <h2 class="text-center">Add Car</h2>
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="d-flex flex-column container-fluid container-md">
+    @if(carId){
+        <h2 class="text-center">Edit Car</h2>
+    }
+    @else{
+        <h2 class="text-center">Add Car</h2>
+    }
     <mat-form-field  class="mb-3">
       <mat-label>Name</mat-label>
       <input matInput type="text" formControlName="name" placeholder="Car Name">
@@ -47,7 +52,7 @@
       <input matInput type="number" formControlName="engineCapacity" placeholder="Engine Capacity">
       <mat-error *ngIf="carForm.get('engineCapacity')?.hasError('required')">Engine capacity is required</mat-error>
     </mat-form-field>
-    
+
     <mat-form-field class="mb-3">
         <mat-label>Technical Inspection Date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="technicalInspectionDate">
@@ -66,7 +71,6 @@
       </mat-error>
     </mat-form-field>
   
-    <!-- ✅ File Upload (MUST NOT be inside <mat-form-field>) -->
     <div class="mb-3">
       <label for="fileUpload">Upload Car Image</label>
       <input type="file" id="fileUpload" (change)="onFileSelect($event)" accept="image/*">

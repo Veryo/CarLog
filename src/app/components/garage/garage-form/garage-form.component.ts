@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-garage-form',
   standalone: true,
@@ -14,11 +15,13 @@ import { MatNativeDateModule } from '@angular/material/core';
   styleUrl: './garage-form.component.scss'
 })
 export class GarageFormComponent {
+  carId!: number | null;
   carForm!: FormGroup;
   emailFormControl = new FormControl('', [Validators.required, Validators.email]);
-  constructor(private fb: FormBuilder) {}
+  constructor(private route: ActivatedRoute,private fb: FormBuilder) {}
 
   ngOnInit() {
+    this.carId = this.route.snapshot.paramMap.get('carId') ? +this.route.snapshot.paramMap.get('carId')! : null;
     this.carForm = this.fb.group({
       name: ['', Validators.required],
       model: ['', Validators.required],
@@ -32,6 +35,7 @@ export class GarageFormComponent {
       technicalInspectionDate: ['', Validators.required],
       registrationCertificateNumber: ['', Validators.required]
     });
+    console.log(this.carId);
   }
 
   onSubmit() {

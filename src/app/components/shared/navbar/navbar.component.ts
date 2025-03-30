@@ -14,7 +14,8 @@ export class NavbarComponent {
   isDisabled = false;
   constructor(private router: Router) {
     this.router.events.subscribe(() => {
-      this.isDisabled = this.router.url.includes('garage');
+      this.isDisabled = this.router.url === '/garage-form' ||
+      this.router.url === '/garage' ;
     });
   }
   navigateToGarage() {
