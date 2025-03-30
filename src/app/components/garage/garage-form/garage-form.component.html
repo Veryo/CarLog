@@ -1,0 +1,79 @@
+<form [formGroup]="carForm" (ngSubmit)="onSubmit()" class="d-flex flex-column ">
+    <h2 class="text-center">Add Car</h2>
+    <mat-form-field  class="mb-3">
+      <mat-label>Name</mat-label>
+      <input matInput type="text" formControlName="name" placeholder="Car Name">
+      <mat-error *ngIf="carForm.get('name')?.hasError('required')">Name is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Model</mat-label>
+      <input matInput type="text" formControlName="model" placeholder="Car Model">
+      <mat-error *ngIf="carForm.get('model')?.hasError('required')">Model is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Year</mat-label>
+      <input matInput type="number" formControlName="year" placeholder="Ex. 2020">
+      <mat-error *ngIf="carForm.get('year')?.hasError('required')">Year is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Mileage</mat-label>
+      <input matInput type="number" formControlName="mileage" placeholder="Enter mileage">
+      <mat-error *ngIf="carForm.get('mileage')?.hasError('required')">Mileage is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>VIN</mat-label>
+      <input matInput type="text" formControlName="vin" placeholder="Vehicle Identification Number">
+      <mat-error *ngIf="carForm.get('vin')?.hasError('required')">VIN is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Registration</mat-label>
+      <input matInput type="text" formControlName="registration" placeholder="Registration Number">
+      <mat-error *ngIf="carForm.get('registration')?.hasError('required')">Registration is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Horse Power</mat-label>
+      <input matInput type="number" formControlName="horsePower" placeholder="Enter Horse Power">
+      <mat-error *ngIf="carForm.get('horsePower')?.hasError('required')">Horse Power is required</mat-error>
+    </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Engine Capacity (L)</mat-label>
+      <input matInput type="number" formControlName="engineCapacity" placeholder="Engine Capacity">
+      <mat-error *ngIf="carForm.get('engineCapacity')?.hasError('required')">Engine capacity is required</mat-error>
+    </mat-form-field>
+    
+    <mat-form-field class="mb-3">
+        <mat-label>Technical Inspection Date</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="technicalInspectionDate">
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="carForm.get('technicalInspectionDate')?.hasError('required')">
+          Technical inspection date is required
+        </mat-error>
+      </mat-form-field>
+  
+    <mat-form-field  class="mb-3">
+      <mat-label>Registration Certificate Number</mat-label>
+      <input matInput type="text" formControlName="registrationCertificateNumber" placeholder="Certificate Number">
+      <mat-error *ngIf="carForm.get('registrationCertificateNumber')?.hasError('required')">
+        Registration certificate number is required
+      </mat-error>
+    </mat-form-field>
+  
+    <!-- ✅ File Upload (MUST NOT be inside <mat-form-field>) -->
+    <div class="mb-3">
+      <label for="fileUpload">Upload Car Image</label>
+      <input type="file" id="fileUpload" (change)="onFileSelect($event)" accept="image/*">
+    </div>
+  
+    <button mat-raised-button color="primary" type="submit" [disabled]="carForm.invalid">
+      Submit
+    </button>
+  </form>
+  
