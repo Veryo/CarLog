@@ -7,6 +7,7 @@ import { GarageFormComponent } from './components/garage/garage-form/garage-form
 export const routes: Routes = [
     {path:'',component:TestComponent},
     {path:'garage', component: GarageComponent},
-    {path:'garage/form', component: GarageFormComponent},
-    {path:'currentCar/:id', component: CurrentCarComponent}
+    {path:'garage-form', component: GarageFormComponent},
+    { path: 'garage-form/:carId', component: GarageFormComponent },
+    {path:'current-car/:id', component: CurrentCarComponent}
 ];
