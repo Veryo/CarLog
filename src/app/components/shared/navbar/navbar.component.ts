@@ -12,7 +12,8 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 })
 export class NavbarComponent {
   isDisabled = false;
-  constructor(private router: Router) {
+  carId! : number;
+  constructor(private router: Router, private activatedRoute: ActivatedRoute) {
     this.router.events.subscribe(() => {
       this.isDisabled = this.router.url === '/garage-form' ||
       this.router.url === '/garage' ;
@@ -27,7 +28,26 @@ export class NavbarComponent {
 
   navigateToCurrentCar() {
     const currentUrl = window.location.pathname;
-    const carId = currentUrl.split('/')[3];  
+    var carId ="";
+    if(this.router.url === '/insurance'){
+      carId = currentUrl.split('/')[3];
+    }
+    else{
+
+      carId = currentUrl.split('/')[2];
+    }
     this.router.navigate(['/current-car', carId]);
+  }
+
+  navigateToFuel() {
+    const currentUrl = window.location.pathname;
+    var carId ="";
+    if(this.router.url === '/current-car'){
+       carId = currentUrl.split('/')[2];
+    }
+    else{
+       carId = currentUrl.split('/')[3];  
+    }
+    this.router.navigate(['/fuel', carId]);
   }
 }

@@ -17,7 +17,6 @@ import { ActivatedRoute } from '@angular/router';
 export class GarageFormComponent {
   carId!: number | null;
   carForm!: FormGroup;
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
   constructor(private route: ActivatedRoute,private fb: FormBuilder) {}
 
   ngOnInit() {
