@@ -1,0 +1,72 @@
+<div class="d-flex flex-column gap-1 container-fluid container-md">
+    <h2 class="text-center">Insurance</h2>
+@if(insurance.insuranceId != 0){
+
+Insurer
+<mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ insurance.insurer }}</div>
+    </mat-card-content>
+  </mat-card>
+  Type of Insurance
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ insurance.type_of_insurance }}</div>
+    </mat-card-content>
+  </mat-card>
+  Service
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ insurance.service }}</div>
+    </mat-card-content>
+  </mat-card>
+  Policy Number
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ insurance.policy_number }}</div>
+    </mat-card-content>
+  </mat-card>
+  Date of Contract Conclusion
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ insurance.date_of_contract_conclusion }}</div>
+    </mat-card-content>
+  </mat-card>
+  Start of Insurance
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div> {{ insurance.start_of_insurance }}</div>
+    </mat-card-content>
+  </mat-card>
+  End of Insurance
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ insurance.end_of_insurance }}</div>
+    </mat-card-content>
+  </mat-card>
+  Phone Number to Call
+  <mat-card appearance="outlined" class="mb-2">
+    <mat-card-content>
+      <div>{{ insurance.phone_number_to_call }}</div>
+    </mat-card-content>
+  </mat-card>
+
+  <button mat-button [routerLink]="['/insurance-form',insurance.insuranceId,carId]">
+    <i class="material-icons">edit</i>Edit
+  </button>
+}
+@else{
+    <button mat-button [routerLink]="['/insurance-form',carId]">
+        <i class="material-icons">add</i>Add
+      </button>
+}
+</div>
+
+
+<!-- {{ insurance.type_of_insurance }}
+{{ insurance.service }}
+{{ insurance.policy_number }}
+{{ insurance.date_of_contract_conclusion }}
+{{ insurance.start_of_insurance }}
+{{ insurance.end_of_insurance }}
+{{ insurance.phone_number_to_call }} -->
