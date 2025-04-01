@@ -1,6 +1,6 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
+import { environment } from '../environments/environment';
 import { routes } from './app.routes';
 import { provideClientHydration, withEventReplay } from '@angular/platform-browser';
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
@@ -9,5 +9,5 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { getStorage, provideStorage } from '@angular/fire/storage';
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideFirebaseApp(() => initializeApp({ projectId: "carlog-92549", appId: "1:796537294148:web:f4ff08b0b7732384ef9b11", storageBucket: "carlog-92549.firebasestorage.app", apiKey: "AIzaSyCA07uZxURZYGeUOVio6uTzF6QgwhQ_i4w", authDomain: "carlog-92549.firebaseapp.com", messagingSenderId: "796537294148" })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage())]
+  providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes), provideClientHydration(withEventReplay()), provideFirebaseApp(() => initializeApp({ projectId: environment.projectId, appId: environment.appId, storageBucket: environment.storageBucket, apiKey: environment.apiKey, authDomain: environment.authDomain, messagingSenderId: environment.messagingSenderId })), provideAuth(() => getAuth()), provideFirestore(() => getFirestore()), provideStorage(() => getStorage())]
 };
